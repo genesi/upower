@@ -557,16 +557,29 @@ up_device_supply_refresh_battery (UpDeviceSupply *supply)
 		supply->priv->unknown_retries = 0;
 	}
 
-	/* get rate; it seems odd as it's either in uVh or uWh */
-	energy_rate = fabs (sysfs_get_double (native_path, "current_now") / 1000000.0);
+	/* this is the new value in uW */
+	energy_rate = fabs (sysfs_get_double (native_path, "power_now") / 1000000.0);
+	if (energy_rate == 0) {
+		gdouble charge_full;
 
-	/* convert charge to energy */
-	if (energy == 0) {
-		energy = sysfs_get_double (native_path, "charge_now") / 1000000.0;
-		if (energy == 0)
-			energy = sysfs_get_double (native_path, "charge_avg") / 1000000.0;
-		energy *= voltage_design;
-		energy_rate *= voltage_design;
+		/* convert charge to energy */
+		if (energy == 0) {
+			energy = sysfs_get_double (native_path, "charge_now") / 1000000.0;
+			if (energy == 0)
+				energy = sysfs_get_double (native_path, "charge_avg") / 1000000.0;
+			energy *= voltage_design;
+		}
+
+                charge_full = sysfs_get_double (native_path, "charge_full") / 1000000.0;
+                if (charge_full == 0)
+                        charge_full = sysfs_get_double (native_path, "charge_full_design") / 1000000.0;
+
+                /* If charge_full exists, then current_now is always reported in uA.
+                 * In the legacy case, where energy only units exist, and power_now isn't present
+                 * current_now is power in uW. */
+		energy_rate = fabs (sysfs_get_double (native_path, "current_now") / 1000000.0);
+		if (charge_full != 0)
+			energy_rate *= voltage_design;
 	}
 
 	/* some batteries don't update last_full attribute */
