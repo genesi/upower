@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
+
+<!--
+Policy definitions for UPower
+
+Copyright (c) 2008 David Zeuthen <david@fubar.dk>
+Copyright (c) 2008-2010 Richard Hughes <richard@hughsie.com>
+
+NOTE: If you make changes to this file, make sure to validate the file
+using the polkit-policy-file-validate(1) tool. Changes made to this
+file are instantly applied.
+-->
+
+<policyconfig>
+  <vendor>The UPower Project</vendor>
+  <vendor_url>http://upower.freedesktop.org/</vendor_url>
+  <icon_name>system-suspend</icon_name>
+
+  <action id="org.freedesktop.upower.suspend">
+    <_description>Suspend the system</_description>
+    <_message>Authentication is required to suspend the system</_message>
+    <defaults>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+
+  <action id="org.freedesktop.upower.hibernate">
+    <_description>Hibernate the system</_description>
+    <_message>Authentication is required to hibernate the system</_message>
+    <defaults>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+
+</policyconfig>

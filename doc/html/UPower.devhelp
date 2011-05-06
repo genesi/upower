@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="UPower Reference Manual" link="index.html" author="Richard Hughes" name="UPower">
+  <chapters>
+    <sub name="D-Bus API Reference" link="ref-dbus.html">
+      <sub name="org.freedesktop.UPower" link="UPower.html"/>
+      <sub name="org.freedesktop.UPower.Device" link="Device.html"/>
+      <sub name="org.freedesktop.UPower.QoS" link="QoS.html"/>
+    </sub>
+    <sub name="libupower-glib GObjects" link="libupower-glib.html">
+      <sub name="up-client" link="UPower-up-client.html"/>
+      <sub name="up-device" link="UPower-up-device.html"/>
+      <sub name="up-history-item" link="UPower-up-history-item.html"/>
+      <sub name="up-qos-item" link="UPower-up-qos-item.html"/>
+      <sub name="up-stats-item" link="UPower-up-stats-item.html"/>
+      <sub name="up-wakeup-item" link="UPower-up-wakeup-item.html"/>
+    </sub>
+    <sub name="libupower-glib helpers" link="libupower-glib-helpers.html">
+      <sub name="up-types" link="UPower-up-types.html"/>
+    </sub>
+    <sub name="Manual Pages" link="tools-fileformats.html">
+      <sub name="UPower" link="UPower.7.html"/>
+      <sub name="upowerd" link="upowerd.8.html"/>
+      <sub name="upower" link="upower.1.html"/>
+    </sub>
+    <sub name="Index" link="ix01.html"/>
+    <sub name="License" link="license.html"/>
+  </chapters>
+  <functions>
+    <function name="EnumerateDevices ()" link="UPower.html#UPower.EnumerateDevices"/>
+    <function name="AboutToSleep ()" link="UPower.html#UPower.AboutToSleep"/>
+    <function name="Suspend ()" link="UPower.html#UPower.Suspend"/>
+    <function name="SuspendAllowed ()" link="UPower.html#UPower.SuspendAllowed"/>
+    <function name="Hibernate ()" link="UPower.html#UPower.Hibernate"/>
+    <function name="HibernateAllowed ()" link="UPower.html#UPower.HibernateAllowed"/>
+    <function name="The DeviceAdded signal" link="UPower.html#UPower::DeviceAdded"/>
+    <function name="The DeviceRemoved signal" link="UPower.html#UPower::DeviceRemoved"/>
+    <function name="The DeviceChanged signal" link="UPower.html#UPower::DeviceChanged"/>
+    <function name="The Changed signal" link="UPower.html#UPower::Changed"/>
+    <function name="The Sleeping signal" link="UPower.html#UPower::Sleeping"/>
+    <function name="The Resuming signal" link="UPower.html#UPower::Resuming"/>
+    <function name="The &quot;DaemonVersion&quot; property" link="UPower.html#UPower:DaemonVersion"/>
+    <function name="The &quot;CanSuspend&quot; property" link="UPower.html#UPower:CanSuspend"/>
+    <function name="The &quot;CanHibernate&quot; property" link="UPower.html#UPower:CanHibernate"/>
+    <function name="The &quot;OnBattery&quot; property" link="UPower.html#UPower:OnBattery"/>
+    <function name="The &quot;OnLowBattery&quot; property" link="UPower.html#UPower:OnLowBattery"/>
+    <function name="The &quot;LidIsClosed&quot; property" link="UPower.html#UPower:LidIsClosed"/>
+    <function name="The &quot;LidIsPresent&quot; property" link="UPower.html#UPower:LidIsPresent"/>
+    <function name="Refresh ()" link="Device.html#Device.Refresh"/>
+    <function name="GetHistory ()" link="Device.html#Device.GetHistory"/>
+    <function name="GetStatistics ()" link="Device.html#Device.GetStatistics"/>
+    <function name="The Changed signal" link="Device.html#Device::Changed"/>
+    <function name="The &quot;NativePath&quot; property" link="Device.html#Device:NativePath"/>
+    <function name="The &quot;Vendor&quot; property" link="Device.html#Device:Vendor"/>
+    <function name="The &quot;Model&quot; property" link="Device.html#Device:Model"/>
+    <function name="The &quot;Serial&quot; property" link="Device.html#Device:Serial"/>
+    <function name="The &quot;UpdateTime&quot; property" link="Device.html#Device:UpdateTime"/>
+    <function name="The &quot;Type&quot; property" link="Device.html#Device:Type"/>
+    <function name="The &quot;PowerSupply&quot; property" link="Device.html#Device:PowerSupply"/>
+    <function name="The &quot;HasHistory&quot; property" link="Device.html#Device:HasHistory"/>
+    <function name="The &quot;HasStatistics&quot; property" link="Device.html#Device:HasStatistics"/>
+    <function name="The &quot;Online&quot; property" link="Device.html#Device:Online"/>
+    <function name="The &quot;Energy&quot; property" link="Device.html#Device:Energy"/>
+    <function name="The &quot;EnergyEmpty&quot; property" link="Device.html#Device:EnergyEmpty"/>
+    <function name="The &quot;EnergyFull&quot; property" link="Device.html#Device:EnergyFull"/>
+    <function name="The &quot;EnergyFullDesign&quot; property" link="Device.html#Device:EnergyFullDesign"/>
+    <function name="The &quot;EnergyRate&quot; property" link="Device.html#Device:EnergyRate"/>
+    <function name="The &quot;Voltage&quot; property" link="Device.html#Device:Voltage"/>
+    <function name="The &quot;TimeToEmpty&quot; property" link="Device.html#Device:TimeToEmpty"/>
+    <function name="The &quot;TimeToFull&quot; property" link="Device.html#Device:TimeToFull"/>
+    <function name="The &quot;Percentage&quot; property" link="Device.html#Device:Percentage"/>
+    <function name="The &quot;IsPresent&quot; property" link="Device.html#Device:IsPresent"/>
+    <function name="The &quot;State&quot; property" link="Device.html#Device:State"/>
+    <function name="The &quot;IsRechargeable&quot; property" link="Device.html#Device:IsRechargeable"/>
+    <function name="The &quot;Capacity&quot; property" link="Device.html#Device:Capacity"/>
+    <function name="The &quot;Technology&quot; property" link="Device.html#Device:Technology"/>
+    <function name="The &quot;RecallNotice&quot; property" link="Device.html#Device:RecallNotice"/>
+    <function name="The &quot;RecallVendor&quot; property" link="Device.html#Device:RecallVendor"/>
+    <function name="The &quot;RecallUrl&quot; property" link="Device.html#Device:RecallUrl"/>
+    <function name="SetMinimumLatency ()" link="QoS.html#QoS.SetMinimumLatency"/>
+    <function name="RequestLatency ()" link="QoS.html#QoS.RequestLatency"/>
+    <function name="CancelRequest ()" link="QoS.html#QoS.CancelRequest"/>
+    <function name="GetLatency ()" link="QoS.html#QoS.GetLatency"/>
+    <function name="GetLatencyRequests ()" link="QoS.html#QoS.GetLatencyRequests"/>
+    <function name="The LatencyChanged signal" link="QoS.html#QoS::LatencyChanged"/>
+    <function name="The RequestsChanged signal" link="QoS.html#QoS::RequestsChanged"/>
+    <function name="UP_CLIENT_ERROR" link="UPower-up-client.html#UP-CLIENT-ERROR:CAPS"/>
+    <function name="UP_CLIENT_TYPE_ERROR" link="UPower-up-client.html#UP-CLIENT-TYPE-ERROR:CAPS"/>
+    <function name="UpClientPrivate" link="UPower-up-client.html#UpClientPrivate"/>
+    <function name="device_added ()" link="UPower-up-client.html#device-added"/>
+    <function name="device_changed ()" link="UPower-up-client.html#device-changed"/>
+    <function name="device_removed ()" link="UPower-up-client.html#device-removed"/>
+    <function name="changed ()" link="UPower-up-client.html#changed"/>
+    <function name="up_client_new ()" link="UPower-up-client.html#up-client-new"/>
+    <function name="up_client_get_properties_sync ()" link="UPower-up-client.html#up-client-get-properties-sync"/>
+    <function name="up_client_enumerate_devices_sync ()" link="UPower-up-client.html#up-client-enumerate-devices-sync"/>
+    <function name="up_client_suspend_sync ()" link="UPower-up-client.html#up-client-suspend-sync"/>
+    <function name="up_client_about_to_sleep_sync ()" link="UPower-up-client.html#up-client-about-to-sleep-sync"/>
+    <function name="up_client_hibernate_sync ()" link="UPower-up-client.html#up-client-hibernate-sync"/>
+    <function name="up_client_get_devices ()" link="UPower-up-client.html#up-client-get-devices"/>
+    <function name="up_client_get_daemon_version ()" link="UPower-up-client.html#up-client-get-daemon-version"/>
+    <function name="up_client_get_can_hibernate ()" link="UPower-up-client.html#up-client-get-can-hibernate"/>
+    <function name="up_client_get_lid_is_closed ()" link="UPower-up-client.html#up-client-get-lid-is-closed"/>
+    <function name="up_client_get_can_suspend ()" link="UPower-up-client.html#up-client-get-can-suspend"/>
+    <function name="up_client_get_on_battery ()" link="UPower-up-client.html#up-client-get-on-battery"/>
+    <function name="up_client_get_on_low_battery ()" link="UPower-up-client.html#up-client-get-on-low-battery"/>
+    <function name="UP_DEVICE_ERROR" link="UPower-up-device.html#UP-DEVICE-ERROR:CAPS"/>
+    <function name="UP_DEVICE_TYPE_ERROR" link="UPower-up-device.html#UP-DEVICE-TYPE-ERROR:CAPS"/>
+    <function name="UpDevicePrivate" link="UPower-up-device.html#UpDevicePrivate"/>
+    <function name="changed ()" link="UPower-up-device.html#changed"/>
+    <function name="up_device_new ()" link="UPower-up-device.html#up-device-new"/>
+    <function name="up_device_to_text ()" link="UPower-up-device.html#up-device-to-text"/>
+    <function name="up_device_refresh_sync ()" link="UPower-up-device.html#up-device-refresh-sync"/>
+    <function name="up_device_set_object_path_sync ()" link="UPower-up-device.html#up-device-set-object-path-sync"/>
+    <function name="up_device_get_history_sync ()" link="UPower-up-device.html#up-device-get-history-sync"/>
+    <function name="up_device_get_statistics_sync ()" link="UPower-up-device.html#up-device-get-statistics-sync"/>
+    <function name="up_device_get_object_path ()" link="UPower-up-device.html#up-device-get-object-path"/>
+    <function name="UpHistoryItemPrivate" link="UPower-up-history-item.html#UpHistoryItemPrivate"/>
+    <function name="up_history_item_new ()" link="UPower-up-history-item.html#up-history-item-new"/>
+    <function name="up_history_item_get_value ()" link="UPower-up-history-item.html#up-history-item-get-value"/>
+    <function name="up_history_item_set_value ()" link="UPower-up-history-item.html#up-history-item-set-value"/>
+    <function name="up_history_item_get_time ()" link="UPower-up-history-item.html#up-history-item-get-time"/>
+    <function name="up_history_item_set_time ()" link="UPower-up-history-item.html#up-history-item-set-time"/>
+    <function name="up_history_item_get_state ()" link="UPower-up-history-item.html#up-history-item-get-state"/>
+    <function name="up_history_item_set_state ()" link="UPower-up-history-item.html#up-history-item-set-state"/>
+    <function name="UpQosItemPrivate" link="UPower-up-qos-item.html#UpQosItemPrivate"/>
+    <function name="up_qos_item_new ()" link="UPower-up-qos-item.html#up-qos-item-new"/>
+    <function name="up_qos_item_get_uid ()" link="UPower-up-qos-item.html#up-qos-item-get-uid"/>
+    <function name="up_qos_item_set_uid ()" link="UPower-up-qos-item.html#up-qos-item-set-uid"/>
+    <function name="up_qos_item_get_pid ()" link="UPower-up-qos-item.html#up-qos-item-get-pid"/>
+    <function name="up_qos_item_set_pid ()" link="UPower-up-qos-item.html#up-qos-item-set-pid"/>
+    <function name="up_qos_item_get_sender ()" link="UPower-up-qos-item.html#up-qos-item-get-sender"/>
+    <function name="up_qos_item_set_sender ()" link="UPower-up-qos-item.html#up-qos-item-set-sender"/>
+    <function name="up_qos_item_get_cmdline ()" link="UPower-up-qos-item.html#up-qos-item-get-cmdline"/>
+    <function name="up_qos_item_set_cmdline ()" link="UPower-up-qos-item.html#up-qos-item-set-cmdline"/>
+    <function name="up_qos_item_get_cookie ()" link="UPower-up-qos-item.html#up-qos-item-get-cookie"/>
+    <function name="up_qos_item_set_cookie ()" link="UPower-up-qos-item.html#up-qos-item-set-cookie"/>
+    <function name="up_qos_item_get_timespec ()" link="UPower-up-qos-item.html#up-qos-item-get-timespec"/>
+    <function name="up_qos_item_set_timespec ()" link="UPower-up-qos-item.html#up-qos-item-set-timespec"/>
+    <function name="up_qos_item_get_persistent ()" link="UPower-up-qos-item.html#up-qos-item-get-persistent"/>
+    <function name="up_qos_item_set_persistent ()" link="UPower-up-qos-item.html#up-qos-item-set-persistent"/>
+    <function name="up_qos_item_get_kind ()" link="UPower-up-qos-item.html#up-qos-item-get-kind"/>
+    <function name="up_qos_item_set_kind ()" link="UPower-up-qos-item.html#up-qos-item-set-kind"/>
+    <function name="up_qos_item_get_value ()" link="UPower-up-qos-item.html#up-qos-item-get-value"/>
+    <function name="up_qos_item_set_value ()" link="UPower-up-qos-item.html#up-qos-item-set-value"/>
+    <function name="UpStatsItemPrivate" link="UPower-up-stats-item.html#UpStatsItemPrivate"/>
+    <function name="up_stats_item_new ()" link="UPower-up-stats-item.html#up-stats-item-new"/>
+    <function name="up_stats_item_get_value ()" link="UPower-up-stats-item.html#up-stats-item-get-value"/>
+    <function name="up_stats_item_set_value ()" link="UPower-up-stats-item.html#up-stats-item-set-value"/>
+    <function name="up_stats_item_get_accuracy ()" link="UPower-up-stats-item.html#up-stats-item-get-accuracy"/>
+    <function name="up_stats_item_set_accuracy ()" link="UPower-up-stats-item.html#up-stats-item-set-accuracy"/>
+    <function name="UpWakeupItemPrivate" link="UPower-up-wakeup-item.html#UpWakeupItemPrivate"/>
+    <function name="up_wakeup_item_new ()" link="UPower-up-wakeup-item.html#up-wakeup-item-new"/>
+    <function name="up_wakeup_item_get_is_userspace ()" link="UPower-up-wakeup-item.html#up-wakeup-item-get-is-userspace"/>
+    <function name="up_wakeup_item_set_is_userspace ()" link="UPower-up-wakeup-item.html#up-wakeup-item-set-is-userspace"/>
+    <function name="up_wakeup_item_get_id ()" link="UPower-up-wakeup-item.html#up-wakeup-item-get-id"/>
+    <function name="up_wakeup_item_set_id ()" link="UPower-up-wakeup-item.html#up-wakeup-item-set-id"/>
+    <function name="up_wakeup_item_get_old ()" link="UPower-up-wakeup-item.html#up-wakeup-item-get-old"/>
+    <function name="up_wakeup_item_set_old ()" link="UPower-up-wakeup-item.html#up-wakeup-item-set-old"/>
+    <function name="up_wakeup_item_get_value ()" link="UPower-up-wakeup-item.html#up-wakeup-item-get-value"/>
+    <function name="up_wakeup_item_set_value ()" link="UPower-up-wakeup-item.html#up-wakeup-item-set-value"/>
+    <function name="up_wakeup_item_get_cmdline ()" link="UPower-up-wakeup-item.html#up-wakeup-item-get-cmdline"/>
+    <function name="up_wakeup_item_set_cmdline ()" link="UPower-up-wakeup-item.html#up-wakeup-item-set-cmdline"/>
+    <function name="up_wakeup_item_get_details ()" link="UPower-up-wakeup-item.html#up-wakeup-item-get-details"/>
+    <function name="up_wakeup_item_set_details ()" link="UPower-up-wakeup-item.html#up-wakeup-item-set-details"/>
+    <function name="enum UpDeviceKind" link="UPower-up-types.html#UpDeviceKind"/>
+    <function name="enum UpDeviceState" link="UPower-up-types.html#UpDeviceState"/>
+    <function name="enum UpDeviceTechnology" link="UPower-up-types.html#UpDeviceTechnology"/>
+    <function name="enum UpQosKind" link="UPower-up-types.html#UpQosKind"/>
+    <function name="up_device_kind_to_string ()" link="UPower-up-types.html#up-device-kind-to-string"/>
+    <function name="up_device_state_to_string ()" link="UPower-up-types.html#up-device-state-to-string"/>
+    <function name="up_device_technology_to_string ()" link="UPower-up-types.html#up-device-technology-to-string"/>
+    <function name="up_device_kind_from_string ()" link="UPower-up-types.html#up-device-kind-from-string"/>
+    <function name="up_device_state_from_string ()" link="UPower-up-types.html#up-device-state-from-string"/>
+    <function name="up_device_technology_from_string ()" link="UPower-up-types.html#up-device-technology-from-string"/>
+    <function name="up_qos_kind_to_string ()" link="UPower-up-types.html#up-qos-kind-to-string"/>
+    <function name="up_qos_kind_from_string ()" link="UPower-up-types.html#up-qos-kind-from-string"/>
+  </functions>
+</book>

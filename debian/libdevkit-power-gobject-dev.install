@@ -1,0 +1,3 @@
+usr/lib/libdevkit-power-gobject.{so,a}
+usr/lib/pkgconfig/devkit-power-gobject.pc
+usr/include/DeviceKit-power/devkit-power-gobject/

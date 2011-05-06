@@ -1,0 +1,7 @@
+up_client_get_type
+up_device_get_type
+up_history_item_get_type
+up_qos_item_get_type
+up_stats_item_get_type
+up_wakeup_item_get_type
+up_wakeups_get_type

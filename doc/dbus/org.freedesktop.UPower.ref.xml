@@ -1,0 +1,203 @@
+<?xml version="1.0"?><!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="UPower">
+  <refmeta>
+    <refentrytitle role="top_of_page">org.freedesktop.UPower</refentrytitle>
+  </refmeta>
+  <refnamediv>
+    <refname>org.freedesktop.UPower</refname>
+    <refpurpose>UPower interface</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv role="synopsis">
+    <title role="synopsis.title">Methods</title>
+    <synopsis><link linkend="UPower.EnumerateDevices">EnumerateDevices</link> (out 'ao' devices)
+<link linkend="UPower.AboutToSleep">AboutToSleep</link>     ()
+<link linkend="UPower.Suspend">Suspend</link>          ()
+<link linkend="UPower.SuspendAllowed">SuspendAllowed</link>   (out 'b'  allowed)
+<link linkend="UPower.Hibernate">Hibernate</link>        ()
+<link linkend="UPower.HibernateAllowed">HibernateAllowed</link> (out 'b'  allowed)
+</synopsis>
+  </refsynopsisdiv>
+  <refsect1 role="signal_proto">
+    <title role="signal_proto.title">Signals</title>
+    <synopsis><link linkend="UPower::DeviceAdded">DeviceAdded</link>   ('o' device)
+<link linkend="UPower::DeviceRemoved">DeviceRemoved</link> ('o' device)
+<link linkend="UPower::DeviceChanged">DeviceChanged</link> ('o' device)
+<link linkend="UPower::Changed">Changed</link>       ()
+<link linkend="UPower::Sleeping">Sleeping</link>      ()
+<link linkend="UPower::Resuming">Resuming</link>      ()
+</synopsis>
+  </refsect1>
+  <refsect1 role="impl_interfaces">
+    <title role="impl_interfaces.title">Implemented Interfaces</title>
+    <para>
+    Objects implementing org.freedesktop.UPower also implements
+    org.freedesktop.DBus.Introspectable,
+    org.freedesktop.DBus.Properties
+    </para>
+  </refsect1>
+  <refsect1 role="properties">
+    <title role="properties.title">Properties</title>
+    <synopsis><link linkend="UPower:DaemonVersion">'DaemonVersion'</link> read      's'
+<link linkend="UPower:CanSuspend">'CanSuspend'</link>    read      'b'
+<link linkend="UPower:CanHibernate">'CanHibernate'</link>  read      'b'
+<link linkend="UPower:OnBattery">'OnBattery'</link>     read      'b'
+<link linkend="UPower:OnLowBattery">'OnLowBattery'</link>  read      'b'
+<link linkend="UPower:LidIsClosed">'LidIsClosed'</link>   read      'b'
+<link linkend="UPower:LidIsPresent">'LidIsPresent'</link>  read      'b'
+</synopsis>
+  </refsect1>
+  <refsect1 role="desc">
+    <title role="desc.title">Description</title>
+    <para>
+      
+        <para>
+          The UPower service is available via the system message
+          bus. To access the service, use
+          the <literal>org.freedesktop.UPower</literal> interface on
+          the <literal>/org/freedesktop/UPower</literal> object on
+          the D-Bus system bus service with the well-known
+          name <literal>org.freedesktop.UPower</literal>.
+        </para>
+        <para>
+          <informalexample>
+            <programlisting>
+$ dbus-send --print-reply \
+            --system \
+            --dest=org.freedesktop.UPower \
+            /org/freedesktop/UPower \
+            org.freedesktop.UPower.EnumerateDevices
+
+method return sender=:1.386 -&gt; dest=:1.451 reply_serial=2
+   array [
+      object path "/org/freedesktop/UPower/devices/line_power_AC"
+      object path "/org/freedesktop/UPower/devices/battery_BAT0"
+   ]
+            </programlisting>
+          </informalexample>
+        </para>
+      
+    </para>
+  </refsect1>
+  <refsect1 role="details"><title role="details.title">Details</title><refsect2><title><anchor role="function" id="UPower.EnumerateDevices"/>EnumerateDevices ()</title><indexterm><primary>EnumerateDevices</primary><secondary>UPower</secondary></indexterm><programlisting>EnumerateDevices (out 'ao' devices)</programlisting></refsect2>
+          <para>
+            Enumerate all power objects on the system.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>devices</parameter>:</term><listitem><simpara>An array of object paths for devices.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UPower.AboutToSleep"/>AboutToSleep ()</title><indexterm><primary>AboutToSleep</primary><secondary>UPower</secondary></indexterm><programlisting>AboutToSleep ()</programlisting></refsect2>
+          <para>
+            This method tells UPower that the Suspend() or Hibernate() method
+            is about to be called.
+            This allows UPower to emit the Suspending signal whilst
+            session activities are happening that have to be done before the
+            suspend process is started.
+          </para>
+          <para>
+            This method would typically be called by the session power
+            management daemon, before it locks the screen and waits for the
+            screen to fade to black.
+            The session power management component would then call Suspend() or
+            Hibernate() when these syncronous tasks have completed.
+          </para>
+          <para>
+            If this method is not called than nothing bad will happen and
+            Suspend() or Hibernate() will block for the required second.
+          </para>
+        <variablelist role="params"/><refsect2><title><anchor role="function" id="UPower.Suspend"/>Suspend ()</title><indexterm><primary>Suspend</primary><secondary>UPower</secondary></indexterm><programlisting>Suspend ()</programlisting></refsect2>
+          <para>
+            Suspends the computer into a low power state.
+            System state is not preserved if the power is lost.
+          </para>
+          <para>
+            If AboutToRequestSleep() has not been called then UPower will send
+            the Sleeping() signal and block for one second.
+          </para>
+          <para>
+            If AboutToRequestSleep() has been called less than one second
+            before this method is called then UPower will block for the
+            remaining time to complete one second of delay.
+          </para>
+        <variablelist role="params"/><refsect2><title><anchor role="function" id="UPower.SuspendAllowed"/>SuspendAllowed ()</title><indexterm><primary>SuspendAllowed</primary><secondary>UPower</secondary></indexterm><programlisting>SuspendAllowed (out 'b' allowed)</programlisting></refsect2>
+          <para>
+            Check if the caller has (or can get) the PolicyKit privilege to call
+            <link linkend="Power.Suspend"><function>Suspend</function></link>.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>allowed</parameter>:</term><listitem><simpara>TRUE if allowed, otherwise FALSE</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UPower.Hibernate"/>Hibernate ()</title><indexterm><primary>Hibernate</primary><secondary>UPower</secondary></indexterm><programlisting>Hibernate ()</programlisting></refsect2>
+          <para>
+            Hibernates the computer into a low power state.
+            System state is preserved if the power is lost.
+          </para>
+          <para>
+            If AboutToRequestSleep() has not been called then UPower will send
+            the Sleeping() signal and block for one second.
+          </para>
+          <para>
+            If AboutToRequestSleep() has been called less than one second
+            before this method is called then UPower will block for the
+            remaining time to complete one second of delay.
+          </para>
+        <variablelist role="params"/><refsect2><title><anchor role="function" id="UPower.HibernateAllowed"/>HibernateAllowed ()</title><indexterm><primary>HibernateAllowed</primary><secondary>UPower</secondary></indexterm><programlisting>HibernateAllowed (out 'b' allowed)</programlisting></refsect2>
+          <para>
+            Check if the caller has (or can get) the PolicyKit privilege to call
+            <link linkend="Power.Hibernate"><function>Hibernate</function></link>.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>allowed</parameter>:</term><listitem><simpara>TRUE if allowed, otherwise FALSE</simpara></listitem></varlistentry></variablelist></refsect1>
+  <refsect1 role="signals"><title role="signals.title">Signal Details</title><refsect2><title><anchor role="function" id="UPower::DeviceAdded"/>The DeviceAdded signal</title><indexterm><primary>DeviceAdded</primary><secondary>UPower</secondary></indexterm><programlisting>DeviceAdded ('o' device)</programlisting></refsect2>
+          <para>
+            Emitted when a device is added.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>device</parameter>:</term><listitem><simpara>Object path of device that was added.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UPower::DeviceRemoved"/>The DeviceRemoved signal</title><indexterm><primary>DeviceRemoved</primary><secondary>UPower</secondary></indexterm><programlisting>DeviceRemoved ('o' device)</programlisting></refsect2>
+          <para>
+            Emitted when a device is removed.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>device</parameter>:</term><listitem><simpara>Object path of device that was removed.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UPower::DeviceChanged"/>The DeviceChanged signal</title><indexterm><primary>DeviceChanged</primary><secondary>UPower</secondary></indexterm><programlisting>DeviceChanged ('o' device)</programlisting></refsect2>
+          <para>
+            Emitted when a device changed.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>device</parameter>:</term><listitem><simpara>Object path of device that was changed.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UPower::Changed"/>The Changed signal</title><indexterm><primary>Changed</primary><secondary>UPower</secondary></indexterm><programlisting>Changed ()</programlisting></refsect2>
+          <para>
+            Emitted when one or more properties on the object changes.
+          </para>
+        <variablelist role="params"/><refsect2><title><anchor role="function" id="UPower::Sleeping"/>The Sleeping signal</title><indexterm><primary>Sleeping</primary><secondary>UPower</secondary></indexterm><programlisting>Sleeping ()</programlisting></refsect2>
+          <para>
+            This signal is sent when the session is about to be suspended or
+            hibernated.
+            Session and system programs have one second to do anything required
+            before the sleep action is taken (such as sending out Avahi or
+            Jabber messages).
+          </para>
+        <variablelist role="params"/><refsect2><title><anchor role="function" id="UPower::Resuming"/>The Resuming signal</title><indexterm><primary>Resuming</primary><secondary>UPower</secondary></indexterm><programlisting>Resuming ()</programlisting></refsect2>
+          <para>
+            This signal is sent when the session has just returned from
+            Suspend() or Hibernate().
+            Session and system programs can then do anything required (such as
+            sending out Avahi or Jabber messages).
+          </para>
+        <variablelist role="params"/></refsect1>
+  <refsect1 role="property_details"><title role="property_details.title">Property Details</title><refsect2><title><anchor role="function" id="UPower:DaemonVersion"/>The "DaemonVersion" property</title><indexterm><primary>DaemonVersion</primary><secondary>UPower</secondary></indexterm><programlisting>'DaemonVersion'  read      's'
+</programlisting></refsect2><para>
+            Version of the running daemon, e.g. <literal>002</literal>.
+      </para><variablelist role="params"/><refsect2><title><anchor role="function" id="UPower:CanSuspend"/>The "CanSuspend" property</title><indexterm><primary>CanSuspend</primary><secondary>UPower</secondary></indexterm><programlisting>'CanSuspend'  read      'b'
+</programlisting></refsect2><para>
+            Whether the system is able to suspend.
+      </para><variablelist role="params"/><refsect2><title><anchor role="function" id="UPower:CanHibernate"/>The "CanHibernate" property</title><indexterm><primary>CanHibernate</primary><secondary>UPower</secondary></indexterm><programlisting>'CanHibernate'  read      'b'
+</programlisting></refsect2><para>
+            Whether the system is able to hibernate.
+      </para><variablelist role="params"/><refsect2><title><anchor role="function" id="UPower:OnBattery"/>The "OnBattery" property</title><indexterm><primary>OnBattery</primary><secondary>UPower</secondary></indexterm><programlisting>'OnBattery'  read      'b'
+</programlisting></refsect2><para>
+            Indicates whether the system is running on battery power.
+            This property is provided for convenience.
+      </para><variablelist role="params"/><refsect2><title><anchor role="function" id="UPower:OnLowBattery"/>The "OnLowBattery" property</title><indexterm><primary>OnLowBattery</primary><secondary>UPower</secondary></indexterm><programlisting>'OnLowBattery'  read      'b'
+</programlisting></refsect2><para>
+            Indicates whether the system is running on battery power and if the battery is critically low.
+            This property is provided for convenience.
+      </para><variablelist role="params"/><refsect2><title><anchor role="function" id="UPower:LidIsClosed"/>The "LidIsClosed" property</title><indexterm><primary>LidIsClosed</primary><secondary>UPower</secondary></indexterm><programlisting>'LidIsClosed'  read      'b'
+</programlisting></refsect2>
+          <para>
+            Indicates if the laptop lid is closed where the display cannot be seen.
+          </para>
+        <variablelist role="params"/><refsect2><title><anchor role="function" id="UPower:LidIsPresent"/>The "LidIsPresent" property</title><indexterm><primary>LidIsPresent</primary><secondary>UPower</secondary></indexterm><programlisting>'LidIsPresent'  read      'b'
+</programlisting></refsect2>
+          <para>
+            If the system has a lid device.
+          </para>
+        <variablelist role="params"/></refsect1>
+</refentry>

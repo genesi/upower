@@ -1,0 +1,425 @@
+Version 0.9.5
+~~~~~~~~~~~
+Released: 2010-07-12
+
+New Features:
+ - Add battery query support for iDevices (Bastien Nocera)
+ - Assign names to our idle sources when using new versions of glib2 (Richard Hughes)
+ - Dynamic testing for enough hibernate swap (Martin Pitt)
+ - Port UPower to libusb1 to avoid unfixable crashes (Richard Hughes)
+ - Port to GTest (Richard Hughes)
+ - Get the powersave command from the backend rather than hardcoding Linux specifics (Richard Hughes)
+
+Bugfixes:
+ - Update the list of supported TrippLite HID Power Devices (Joseph Stockman)
+ - Fix a potential daemon crash. Fixes fd#27902 (Mariusz Ceier)
+ - Increase UP_DAEMON_SWAP_WATERLINE (Martin Pitt)
+ - Fix up a potential crasher in the CSR device code (Richard Hughes)
+ - When calculating used swap space, only use anonymous pages (Steven Walter)
+ - Use pm-is-supported to test if various sleep modes are supported (Victor Lowther)
+
+IMPORTANT NOTE:
+ - This is the last release with the deprecated devkit-power-gobject library
+   included. Users should have ported to libupower-glib months ago...
+
+Version 0.9.4
+~~~~~~~~~~~
+Released: 2010-05-12
+
+New Features:
+ - Detect when the kernel changes the reported charge units. Fixes rh#587112 (Kyle McMartin)
+
+Bugfixes:
+ - Only emit ::Sleeping() after we've checked AboutToSleep (Richard Hughes)
+ - Ensure we send ::Sleeping() if clients do not call AboutToSleep (Richard Hughes)
+ - Ensure we sent ::notify signals when UpDaemon properties change (Richard Hughes)
+
+Version 0.9.3
+~~~~~~~~~~~
+Released: 2010-05-06
+
+New Features:
+ - Add a config file with SleepTimeout and AllowHibernateEncryptedSwap entries (Richard Hughes)
+
+Bugfixes:
+ - Fix c&p typo in documentation (Michael Biebl)
+ - The gettext package should match the tarball name (Richard Hughes)
+ - Provide UpDaemon with C setters rather than relying on GObject properties (Richard Hughes)
+ - Sanity check the device is not already in the list before adding (Richard Hughes)
+ - Fix recognition of lithium iron phosphate (LiFePO4) batteries (Sascha Silbe)
+
+Version 0.9.2
+~~~~~~~~~~~~~
+Released: 2010-04-06
+
+New Features:
+ - Add a missing accessor: up_client_get_lid_is_present() (Richard Hughes)
+ - Change the tarball name to be all lower case to match udisks and udev (Richard Hughes)
+ - Convert the daemon to using objects from libupower-glib, not devkit-power-gobject (Richard Hughes)
+ - Do not allow client programs to enumerate the device list more than once (Richard Hughes)
+ - Get the encrypted swap status from the backend, rather than hardcoding Linux specifics (Richard Hughes)
+ - Get the kernel sleep capabilities from the backend, rather than hardcoding Linux specifics (Richard Hughes)
+ - Get the suspend and hibernate commands from the backend, rather than hardcoding Linux specifics (Richard Hughes)
+ - Get the swap size from the backend, rather than hardcoding Linux specifics (Richard Hughes)
+ - Show in ./configure summary if unit tests have been enabled or not (Michael Biebl)
+
+Bugfixes:
+ - Do not warn what we are correcting energy-full when there is no data to copy (Richard Hughes)
+ - Ensure we enumerate devices before we start monitoring them (Richard Hughes)
+ - Fixes to the autogen.sh script (Michael Biebl)
+ - Make dummy backend usable for architectures without a native backend (Michael Biebl)
+ - Remove libdevkit-power-gobject dependency from backends (Michael Biebl)
+ - Simplify udev subdirectory handling (Michael Biebl)
+
+Version 0.9.1
+~~~~~~~~~~~~~
+Released: 2010-03-03
+
+New Features:
+ - Add a new method and two new signals to inform userspace of the pending suspend and the resume event (Richard Hughes)
+ - Add {Suspend,Hibernate}Allowed D-Bus methods (Martin Pitt)
+ - Add up_polkit_is_allowed() function (Martin Pitt)
+ - Check PolicyKit in client's can_{suspend,hibernate} properties (Martin Pitt)
+ - Don't ship an introspection file for devkit-power-gobject, it's soon to be obsolete (Richard Hughes)
+ - Install the introspection data to the correct location (Richard Hughes)
+ - Make the upower client tool use libupower-glib, rather than devit-power-gobject (Richard Hughes)
+ - Use GCancellable in libupower-glib so we can eventually get to GIO async methods (Richard Hughes)
+
+Bugfixes:
+ - Ensure we return all lines of the UpDevice when we call up_device_to_string() (Richard Hughes)
+ - Fix libupower-glib include dir and pkgconfig (Martin Pitt)
+ - Fix up autogen.sh after the configure.ac modernisation (Michael Biebl)
+ - Fix up the FreeBSD backend compile (Michael Biebl)
+ - Fix up the include directory in the pkgconfig file (Richard Hughes)
+ - Make sure the tests link against all necessary libraries (Michael Biebl)
+ - Move the history files to /var/lib/upower (Michael Biebl)
+ - Update help and g_option_context_new to upower (Michael Biebl)
+ - Use the new project name in g_option_context_new (Michael Biebl)
+
+Version 0.9.0
+~~~~~~~~~~~
+Released: 2010-02-01
+
+NOTES:
+ - The DBus service and interfaces have been renamed
+ - The devkit-power-gobject library is still API and ABI stable
+ - The libupower library co-installs with devkit-power-gobject for now
+ - The version has changed to 0.9.0 from 015. You'll need to use an epoch in
+   your distro package if you're not renaming the package from DeviceKit-power
+   to UPower. See the sample Fedora spec if you need a template.
+
+Translations:
+ - Add Swedish translation (Daniel Nylander)
+ - Added Italian translation (Luca Ferretti)
+ - Add Polish translation (Piotr Drąg)
+
+New Features:
+ - Add initial GObject introspection support (Richard Hughes)
+
+Bugfixes:
+ - Use a fallback for the capability bit when checking the lid status. Fixes #25041 (Richard Hughes)
+ - Rename the DBus service from org.freedesktop.DeviceKit.Power to org.freedesktop.UPower (Richard Hughes)
+ - Rename the PolicyKit rules from org.freedesktop.devicekit.power to org.freedesktop.upower (Richard Hughes)
+ - Make the client tool be called upower, but maintain a symlink to devkit-power (Richard Hughes)
+ - Rename the man pages and rename the main daemon binary name (Richard Hughes)
+ - Change the version number to 0.9.0 and tarball name to UPower (Richard Hughes)
+ - Version-lock the devkit-power-gobject version to 015, not 0.9.0 (Richard Hughes)
+ - Make DkpClient a singleton to avoid some weird race conditions (Richard Hughes)
+ - Add libupower so applications can switch away from devkit-power-gobject (Richard Hughes)
+ - Update the Free Software Foundation address (Richard Hughes)
+
+Version 014
+~~~~~~~~~~~
+Released: 2010-01-08
+
+New Features:
+ - Import the FreeBSD backend (Joe Marcus Clarke)
+
+Bugfixes:
+ - Check if swap exists before determining how much is free (Debbie Beliveau)
+ - Comment out some problematic compiler warnings (Joe Marcus Clarke)
+ - Prevent segfault if connection to system dbus fails (Martin Koegler)
+ - Fix segfault in the history code. Fixes fd#25632 (Richard Hughes)
+
+Version 013
+~~~~~~~~~~~
+Released: 2009-12-07
+
+Note:
+ - The DBus interface of DeviceKit-power may be subject to change in future
+   versions of this daemon.
+ - This will probably be the last release of DeviceKit-power as the project has
+   been renamed to upower.
+
+New Features:
+ - When using devkit-power --monitor, print a timestamp before each message for
+   debugging. Fixes fd#24666 (Richard Hughes)
+
+Bugfixes:
+ - Update the list of HID UPS (Arnaud Quette)
+ - Use a gdouble for percentage to fix on-battery reporting (Byron Clark)
+ - Bug 24262 – incorrect battery recall warning for Lenovo T61 (Martin Pitt)
+ - Fix the toshiba battery recal notices by matching up the double quotes (Richard Hughes)
+ - Avoid going from discharging to pending-discharge when the expansion battery
+   is very low (Richard Hughes)
+ - Some vendors fill the NVRAM full of junk. Don't crash the daemon if the
+   battery is broken. Fixes rh#533654 (Richard Hughes)
+ - When the internal battery is in the unknown state, we can't make a decision
+   whether the system is on battery power (Richard Hughes)
+ - Some batteries give out massive rate values when nearly empty (Richard Hughes)
+
+Version 012
+~~~~~~~~~~~
+Released: 2009-10-19
+
+Note:
+ - The DBus interface of DeviceKit-power may be subject to change in future
+   versions of this daemon.
+
+New Features:
+ - Detect encrypted swap and prevent hibernate in this case. Fixes fd#23196 (Richard Hughes)
+ - Add g_object_notify() calls for properties on DkpClient (Richard Hughes)
+
+Bugfixes:
+ - Ensure we only reset the update-time property when we have done the refresh, not before (Richard Hughes)
+ - Don't emit changed events from the DkpBackend layer, instead push then through DkpDevice (Richard Hughes)
+ - When we do a delayed refresh, actually do 5 x 1 second apart rather than 1 x 3 seconds (Richard Hughes)
+
+Version 011
+~~~~~~~~~~~
+Released: 2009-10-06
+
+Note:
+ - The DBus interface of DeviceKit-power may be subject to change in future
+   versions of this daemon.
+ - The DBus interface has changed to use FirstLetterCaps property names
+   so Qt projects can use the DBus interface without resorting to ugly hacks.
+
+New Features:
+ - Return meaningful errors if the user tries to suspend or hibernate without
+   kernel support or swap set up (Richard Hughes)
+ - Use the sysfs file 'type' to work out the battery type before using a
+   fallback (Enrico Zini, Richard Hughes)
+
+Bugfixes:
+ - Update list of HID UPS devices (Arnaud Quette)
+ - Add backend code to make DeviceKit-power compile without GUdev for non-Linux
+   platforms (Richard Hughes)
+ - Only disable the polling if the kernel tells us we're fully charged, not if
+   we guessed it (Richard Hughes)
+ - Make the remove logic much cleaner to try to fix bugs where removing the
+   mouse kills the session (Richard Hughes)
+ - Fix up some small memory leaks (Richard Hughes)
+ - Freeze and thaw the device during initial coldplug (Richard Hughes)
+ - Fix up a few potential problems spotted by clang (Richard Hughes)
+ - Fix a tiny memory leak when we collect the properties from the interface
+   multiple times (Richard Hughes)
+ - Use voltage_now as a fallback to the design voltage (Enrico Zini, Richard Hughes)
+
+Version 010
+~~~~~~~~~~~
+Released: 2009-07-22
+
+Note:
+ - The DBus interface of DeviceKit-power may be subject to change in future
+   versions of this daemon.
+ - This project now depends on GUdev and PolicyKit1
+
+New Features:
+ - Port to GUdev (Richard Hughes)
+ - Port to PolicyKit1 (Richard Hughes)
+
+Bugfixes:
+ - Add a notify flag to set_lid_is_closed to fix the initial state (Loïc Minier)
+ - Correct a description string from one of the new enums (Richard Hughes)
+ - Only guess the battery status if we have > 1 battery in the system (Richard Hughes)
+ - Use the global battery state as a metric for single battery machines (Richard Hughes)
+ - Query the kernel to decide if we have hibernate and suspend support (Richard Hughes)
+ - If we don't have enough swap available, don't advertise hibernate. Fixes rh#513015 (Richard Hughes)
+ - Force a refresh all battery devices when the ac-adaptor changes. Fixes rh#512995 (Richard Hughes)
+
+Version 009
+~~~~~~~~~~~
+Released: 2009-07-06
+
+Note:
+ - The DBus interface of DeviceKit-power may be subject to change in future
+   versions of this daemon.
+ - The experimental devkit-power-gobject library has no API or ABI guarantees.
+ - This is the first version of DeviceKit-power where multiple laptop batteries
+   are officially supported.
+
+New Features:
+ - Interface with pm-powersave as external vendors are using this (Richard Hughes)
+ - Enable pretty compiler output with new automake versions (Richard Hughes)
+ - udev rules files now live in /lib/udev/rules.d, not /etc/udev/rules.d (Richard Hughes)
+ - Add battery recall data rules (Richard Hughes)
+ - Export the recall-notice, recall-vendor and recall-url properties on power devices (Richard Hughes)
+ - Protect the non-GObject accessors with DKP_DISABLE_DEPRECATED (Richard Hughes)
+ - Add two new state enums, pending-discharge and pending-charge (Richard Hughes)
+ - Use the global state to fix the unknown battery status (Richard Hughes)
+
+Bugfixes:
+ - Suppress lid change event on startup (Martin Pitt)
+ - Fix two issues with the pm-powersave code (Roland Dreier)
+ - Mark batteries as empty if they have unknown state and a very low energy (Richard Hughes)
+ - For power_supply, unknown is a valid state from the kernel (Richard Hughes)
+ - Don't assume all batteries have positive energy_full values (Richard Hughes)
+ - Add one more variation of lithium-poly (Richard Hughes)
+ - Don't show empty vendor, model or serials in the debug outputs (Richard Hughes)
+ - Fix a small memory leak on supply coldplugging (Richard Hughes)
+ - Hardcode pm-powersave like we do pm-suspend and pm-hibernate (Richard Hughes)
+ - Initial refresh after coldplug is not fatal if it fails (Richard Hughes)
+ - Set the GObject properties correctly in the DkpDeviceHid class (Richard Hughes)
+ - The UPS can't expose empty or fully-charged, so fixup these states (Richard Hughes)
+ - Fix detecting the USB UPS devices (Richard Hughes)
+ - Add a lid-is-present property (Richard Hughes)
+ - Be less asserty when enum values are added in newer versions of the spec (Richard Hughes)
+ - Add a DKP_CHECK_VERSION macro which we can use in client tools (Richard Hughes)
+ - Move the udev rules to their own directory (Richard Hughes)
+ - Move a small rule about the fully charged level from g-p-m (Richard Hughes)
+
+Version 008
+~~~~~~~~~~~
+Released: 2009-06-01
+
+Note:
+ - The DBus interface of DeviceKit-power may be subject to change in future
+   versions of this daemon.
+ - The experimental devkit-power-gobject library has no API or ABI guarantees.
+
+New Features:
+ - Allow the daemon to get the global online state for all devices (Matthew Garrett)
+ - Add a has-capability to the org.freedesktop.DeviceKit.Power.Wakeups interface (Richard Hughes)
+ - Add a property lid-is-closed for g-p-m and x-p-m to use (Richard Hughes)
+
+Bugfixes:
+ - Fix up some issues in DkpClient, and expose GObject properties (Ali Abdallah)
+ - Remove the 0x prefix from some rule matches (Ronald)
+ - Allow all DBus properties to be read with the new DBus (Richard Hughes)
+ - Only reset the update-time if the read was successful (Richard Hughes)
+ - Optimise the udev rules to skip non-usb devices (Richard Hughes)
+ - Ensure we get properties on devices correctly that have not yet been changed (Richard Hughes)
+ - Make the suspend and hibernate scripts execute synchronously. Fixes rh#497563 (Richard Hughes)
+ - Ignore method timeouts when we suspend and hibernate (Richard Hughes)
+ - Add two missing files to the last commit (Richard Hughes)
+ - Don't overwrite energy-full-design with zero after coldplug (Richard Hughes)
+ - Only get the device state for the poll after the refresh (Richard Hughes)
+ - Continue to poll when power supply device is marked unknown. Fixes rh#495493 (Richard Hughes)
+ - Correct a debugging statement (Richard Hughes)
+ - Never overwrite ID_PRODUCT or ID_VENDOR (Richard Hughes)
+ - Don't return history data relative to the earliest point (Richard Hughes)
+ - Setup different polls based on the battery state (Matthew Garrett)
+ - Don't poll on unknown forever. Based on a patch from Matthew Garrett (Richard Hughes)
+ - Fix up the return statuses from coldplug and refresh (Richard Hughes)
+ - Only attempt to print history if the device is capable (Richard Hughes)
+ - Allow properties in DkpDevice (client) to be set (Richard Hughes)
+
+Version 007
+~~~~~~~~~~~
+Released: 2009-03-30
+
+Note:
+ - The DBus interface of DeviceKit-power may be subject to change in future
+   versions of this daemon.
+ - The experimental devkit-power-gobject library has no API or ABI guarantees.
+
+New Features:
+ - Get rid of internal Object and instead use the GObject property system (Richard Hughes)
+ - Move the library directory from libdevkit-power to devkit-power-gobject (Richard Hughes)
+ - Ship a shared library. There are now three external projects using copies of
+   this, which is rediculous (Richard Hughes)
+ - Require I_KNOW_THE_DEVICEKIT_POWER_API_IS_SUBJECT_TO_CHANGE (Richard Hughes)
+
+Bugfixes:
+ - Fix up DBus interface for CVE-2008-4311 (Stanislav Brabec)
+ - Fix g-p-m and DeviceKit-power when running with a permissive dbus. Fixes fd#20882 (Frederic Crozat)
+ - Remove use of EggObjList, and make the library more sane (Richard Hughes)
+ - Fix compile error in dkp-power. Fixes #20749 (Richard Hughes)
+
+Version 006
+~~~~~~~~~~~
+Released: 2009-02-10
+
+Bugfixes:
+ - Fix compile failure with gcc-4.4.0 and old versions of glib2 (Richard Hughes)
+ - Only enable the wakeups polling if a client requires the data (Richard Hughes)
+ - Correctly set the power-supply property (David Zeuthen)
+ - Don't crash when we limit the resolution of a small dataset (Richard Hughes)
+ - Don't sync to disk every 5 seconds, do it every 10 minutes (Richard Hughes)
+ - Fix the QoS interface with the proper signature (Richard Hughes)
+
+Version 005
+~~~~~~~~~~~
+Released: 2009-02-02
+
+New Features:
+ - Add a wakeups interface so we can get data from the system over DBus (Richard Hughes)
+ - Allow showing the wakeup data in the devkit-power command line tool (Richard Hughes)
+
+Version 004
+~~~~~~~~~~~
+Released: 2009-01-23
+
+Bugfixes:
+ - Fix the battery capacity calculation. Fixes fd#19165 (Richard Hughes)
+ - Special case machines where the kernel does not convert charge to power (Richard Hughes)
+ - Check all the power supply fields for valid data (Richard Hughes)
+
+Version 003
+~~~~~~~~~~~
+Released: 2008-12-09
+
+New Features:
+ - Implement the .QoS interface -- still proof of concept (Richard Hughes)
+
+Bugfixes:
+ - Enable the low power saving code in DkpHistory (Richard Hughes)
+ - Don't keep putting off the profile saving in DkpHistory (Richard Hughes)
+ - Allow DeviceKit-power to run with the 'fixed' DBus (Richard Hughes)
+
+Version 002
+~~~~~~~~~~~
+Released: 2008-11-13
+
+New Features:
+ - add in CanSuspend and CanHibernate into API (Richard Hughes)
+ - add two new properties, has-history and has-statistics (Richard Hughes)
+ - add voltage property of a power device (Richard Hughes)
+ - all logging for all the other device types too (Richard Hughes)
+ - Move object paths so things are rooted under /org/freedesktop/DeviceKit/Power (David Zeuthen)
+ - Add functionality to monitor a Watts Up Pro device (Richard Hughes)
+ - Turn some methods into properties (David Zeuthen)
+
+Bugfixes:
+ - Also rename configure.in to configure.ac in autogen.sh (David Zeuthen)
+ - Fix up deps and build system (David Zeuthen)
+ - We're a fd.o project (David Zeuthen)
+ - Update my email address (David Zeuthen)
+ - Update mailing list reference in man pages (David Zeuthen)
+ - Update bug report URL to point to our mailing list (David Zeuthen)
+ - Nuke devkit-power-on-battery for now (David Zeuthen)
+ - Don't report negative rate when charging (Richard Hughes)
+ - Remove the battery- and line-power- prefix from the device properties (Richard Hughes)
+ - Add DkpStatsObj convenience helpers (Richard Hughes)
+ - Save the time to full and time to empty too (Richard Hughes)
+ - Don't clear the list when we print it (Richard Hughes)
+ - Support getting stats from DkpSupply devices (Richard Hughes)
+ - Poll every 10 seconds to get better stats results (Richard Hughes)
+ - Work out the statistics by binning them into percentage sized holes (Richard Hughes)
+ - Add two remove functions to the generic object list (Richard Hughes)
+ - Don't unconditionally set the energy_full to energy_full_design if larger (Richard Hughes)
+ - Add a first approximation of a time resolution limiter (Richard Hughes)
+ - Expand the client helper library to cover all the base API for gnome-power-manager (Richard Hughes)
+ - Use 0 for unknown, not -1 as some values like rate and voltage are valid when negative (Richard Hughes)
+ - Use a better resolution limiting function for getting the history to reduce CPU load (Richard Hughes)
+ - Match the WUP device on the tty device, not the USB device (Richard Hughes)
+ - Fix the include headers for DeviceKit 002 (Richard Hughes)
+ - Document how to access the D-Bus service with examples (David Zeuthen)
+
+Version 001
+~~~~~~~~~~~
+Released: 2008-09-02
+
+- Initial proof of concept version
+

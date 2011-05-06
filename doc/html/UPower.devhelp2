@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="UPower Reference Manual" link="index.html" author="Richard Hughes" name="UPower" version="2" language="c">
+  <chapters>
+    <sub name="D-Bus API Reference" link="ref-dbus.html">
+      <sub name="org.freedesktop.UPower" link="UPower.html"/>
+      <sub name="org.freedesktop.UPower.Device" link="Device.html"/>
+      <sub name="org.freedesktop.UPower.QoS" link="QoS.html"/>
+    </sub>
+    <sub name="libupower-glib GObjects" link="libupower-glib.html">
+      <sub name="up-client" link="UPower-up-client.html"/>
+      <sub name="up-device" link="UPower-up-device.html"/>
+      <sub name="up-history-item" link="UPower-up-history-item.html"/>
+      <sub name="up-qos-item" link="UPower-up-qos-item.html"/>
+      <sub name="up-stats-item" link="UPower-up-stats-item.html"/>
+      <sub name="up-wakeup-item" link="UPower-up-wakeup-item.html"/>
+    </sub>
+    <sub name="libupower-glib helpers" link="libupower-glib-helpers.html">
+      <sub name="up-types" link="UPower-up-types.html"/>
+    </sub>
+    <sub name="Manual Pages" link="tools-fileformats.html">
+      <sub name="UPower" link="UPower.7.html"/>
+      <sub name="upowerd" link="upowerd.8.html"/>
+      <sub name="upower" link="upower.1.html"/>
+    </sub>
+    <sub name="Index" link="ix01.html"/>
+    <sub name="License" link="license.html"/>
+  </chapters>
+  <functions>
+    <keyword type="" name="EnumerateDevices ()" link="UPower.html#UPower.EnumerateDevices"/>
+    <keyword type="" name="AboutToSleep ()" link="UPower.html#UPower.AboutToSleep"/>
+    <keyword type="" name="Suspend ()" link="UPower.html#UPower.Suspend"/>
+    <keyword type="" name="SuspendAllowed ()" link="UPower.html#UPower.SuspendAllowed"/>
+    <keyword type="" name="Hibernate ()" link="UPower.html#UPower.Hibernate"/>
+    <keyword type="" name="HibernateAllowed ()" link="UPower.html#UPower.HibernateAllowed"/>
+    <keyword type="" name="The DeviceAdded signal" link="UPower.html#UPower::DeviceAdded"/>
+    <keyword type="" name="The DeviceRemoved signal" link="UPower.html#UPower::DeviceRemoved"/>
+    <keyword type="" name="The DeviceChanged signal" link="UPower.html#UPower::DeviceChanged"/>
+    <keyword type="" name="The Changed signal" link="UPower.html#UPower::Changed"/>
+    <keyword type="" name="The Sleeping signal" link="UPower.html#UPower::Sleeping"/>
+    <keyword type="" name="The Resuming signal" link="UPower.html#UPower::Resuming"/>
+    <keyword type="" name="The &quot;DaemonVersion&quot; property" link="UPower.html#UPower:DaemonVersion"/>
+    <keyword type="" name="The &quot;CanSuspend&quot; property" link="UPower.html#UPower:CanSuspend"/>
+    <keyword type="" name="The &quot;CanHibernate&quot; property" link="UPower.html#UPower:CanHibernate"/>
+    <keyword type="" name="The &quot;OnBattery&quot; property" link="UPower.html#UPower:OnBattery"/>
+    <keyword type="" name="The &quot;OnLowBattery&quot; property" link="UPower.html#UPower:OnLowBattery"/>
+    <keyword type="" name="The &quot;LidIsClosed&quot; property" link="UPower.html#UPower:LidIsClosed"/>
+    <keyword type="" name="The &quot;LidIsPresent&quot; property" link="UPower.html#UPower:LidIsPresent"/>
+    <keyword type="" name="Refresh ()" link="Device.html#Device.Refresh"/>
+    <keyword type="" name="GetHistory ()" link="Device.html#Device.GetHistory"/>
+    <keyword type="" name="GetStatistics ()" link="Device.html#Device.GetStatistics"/>
+    <keyword type="" name="The Changed signal" link="Device.html#Device::Changed"/>
+    <keyword type="" name="The &quot;NativePath&quot; property" link="Device.html#Device:NativePath"/>
+    <keyword type="" name="The &quot;Vendor&quot; property" link="Device.html#Device:Vendor"/>
+    <keyword type="" name="The &quot;Model&quot; property" link="Device.html#Device:Model"/>
+    <keyword type="" name="The &quot;Serial&quot; property" link="Device.html#Device:Serial"/>
+    <keyword type="" name="The &quot;UpdateTime&quot; property" link="Device.html#Device:UpdateTime"/>
+    <keyword type="" name="The &quot;Type&quot; property" link="Device.html#Device:Type"/>
+    <keyword type="" name="The &quot;PowerSupply&quot; property" link="Device.html#Device:PowerSupply"/>
+    <keyword type="" name="The &quot;HasHistory&quot; property" link="Device.html#Device:HasHistory"/>
+    <keyword type="" name="The &quot;HasStatistics&quot; property" link="Device.html#Device:HasStatistics"/>
+    <keyword type="" name="The &quot;Online&quot; property" link="Device.html#Device:Online"/>
+    <keyword type="" name="The &quot;Energy&quot; property" link="Device.html#Device:Energy"/>
+    <keyword type="" name="The &quot;EnergyEmpty&quot; property" link="Device.html#Device:EnergyEmpty"/>
+    <keyword type="" name="The &quot;EnergyFull&quot; property" link="Device.html#Device:EnergyFull"/>
+    <keyword type="" name="The &quot;EnergyFullDesign&quot; property" link="Device.html#Device:EnergyFullDesign"/>
+    <keyword type="" name="The &quot;EnergyRate&quot; property" link="Device.html#Device:EnergyRate"/>
+    <keyword type="" name="The &quot;Voltage&quot; property" link="Device.html#Device:Voltage"/>
+    <keyword type="" name="The &quot;TimeToEmpty&quot; property" link="Device.html#Device:TimeToEmpty"/>
+    <keyword type="" name="The &quot;TimeToFull&quot; property" link="Device.html#Device:TimeToFull"/>
+    <keyword type="" name="The &quot;Percentage&quot; property" link="Device.html#Device:Percentage"/>
+    <keyword type="" name="The &quot;IsPresent&quot; property" link="Device.html#Device:IsPresent"/>
+    <keyword type="" name="The &quot;State&quot; property" link="Device.html#Device:State"/>
+    <keyword type="" name="The &quot;IsRechargeable&quot; property" link="Device.html#Device:IsRechargeable"/>
+    <keyword type="" name="The &quot;Capacity&quot; property" link="Device.html#Device:Capacity"/>
+    <keyword type="" name="The &quot;Technology&quot; property" link="Device.html#Device:Technology"/>
+    <keyword type="" name="The &quot;RecallNotice&quot; property" link="Device.html#Device:RecallNotice"/>
+    <keyword type="" name="The &quot;RecallVendor&quot; property" link="Device.html#Device:RecallVendor"/>
+    <keyword type="" name="The &quot;RecallUrl&quot; property" link="Device.html#Device:RecallUrl"/>
+    <keyword type="" name="SetMinimumLatency ()" link="QoS.html#QoS.SetMinimumLatency"/>
+    <keyword type="" name="RequestLatency ()" link="QoS.html#QoS.RequestLatency"/>
+    <keyword type="" name="CancelRequest ()" link="QoS.html#QoS.CancelRequest"/>
+    <keyword type="" name="GetLatency ()" link="QoS.html#QoS.GetLatency"/>
+    <keyword type="" name="GetLatencyRequests ()" link="QoS.html#QoS.GetLatencyRequests"/>
+    <keyword type="" name="The LatencyChanged signal" link="QoS.html#QoS::LatencyChanged"/>
+    <keyword type="" name="The RequestsChanged signal" link="QoS.html#QoS::RequestsChanged"/>
+    <keyword type="macro" name="UP_CLIENT_ERROR" link="UPower-up-client.html#UP-CLIENT-ERROR:CAPS"/>
+    <keyword type="macro" name="UP_CLIENT_TYPE_ERROR" link="UPower-up-client.html#UP-CLIENT-TYPE-ERROR:CAPS"/>
+    <keyword type="struct" name="UpClientPrivate" link="UPower-up-client.html#UpClientPrivate"/>
+    <keyword type="function" name="device_added ()" link="UPower-up-client.html#device-added"/>
+    <keyword type="function" name="device_changed ()" link="UPower-up-client.html#device-changed"/>
+    <keyword type="function" name="device_removed ()" link="UPower-up-client.html#device-removed"/>
+    <keyword type="function" name="changed ()" link="UPower-up-client.html#changed"/>
+    <keyword type="function" name="up_client_new ()" link="UPower-up-client.html#up-client-new" since="0.9.0"/>
+    <keyword type="function" name="up_client_get_properties_sync ()" link="UPower-up-client.html#up-client-get-properties-sync" since="0.9.0"/>
+    <keyword type="function" name="up_client_enumerate_devices_sync ()" link="UPower-up-client.html#up-client-enumerate-devices-sync" since="0.9.0"/>
+    <keyword type="function" name="up_client_suspend_sync ()" link="UPower-up-client.html#up-client-suspend-sync" since="0.9.0"/>
+    <keyword type="function" name="up_client_about_to_sleep_sync ()" link="UPower-up-client.html#up-client-about-to-sleep-sync" since="0.9.1"/>
+    <keyword type="function" name="up_client_hibernate_sync ()" link="UPower-up-client.html#up-client-hibernate-sync" since="0.9.0"/>
+    <keyword type="function" name="up_client_get_devices ()" link="UPower-up-client.html#up-client-get-devices" since="0.9.0"/>
+    <keyword type="function" name="up_client_get_daemon_version ()" link="UPower-up-client.html#up-client-get-daemon-version" since="0.9.0"/>
+    <keyword type="function" name="up_client_get_can_hibernate ()" link="UPower-up-client.html#up-client-get-can-hibernate" since="0.9.0"/>
+    <keyword type="function" name="up_client_get_lid_is_closed ()" link="UPower-up-client.html#up-client-get-lid-is-closed" since="0.9.0"/>
+    <keyword type="function" name="up_client_get_can_suspend ()" link="UPower-up-client.html#up-client-get-can-suspend" since="0.9.0"/>
+    <keyword type="function" name="up_client_get_on_battery ()" link="UPower-up-client.html#up-client-get-on-battery" since="0.9.0"/>
+    <keyword type="function" name="up_client_get_on_low_battery ()" link="UPower-up-client.html#up-client-get-on-low-battery" since="0.9.0"/>
+    <keyword type="macro" name="UP_DEVICE_ERROR" link="UPower-up-device.html#UP-DEVICE-ERROR:CAPS"/>
+    <keyword type="macro" name="UP_DEVICE_TYPE_ERROR" link="UPower-up-device.html#UP-DEVICE-TYPE-ERROR:CAPS"/>
+    <keyword type="struct" name="UpDevicePrivate" link="UPower-up-device.html#UpDevicePrivate"/>
+    <keyword type="function" name="changed ()" link="UPower-up-device.html#changed"/>
+    <keyword type="function" name="up_device_new ()" link="UPower-up-device.html#up-device-new" since="0.9.0"/>
+    <keyword type="function" name="up_device_to_text ()" link="UPower-up-device.html#up-device-to-text" since="0.9.0"/>
+    <keyword type="function" name="up_device_refresh_sync ()" link="UPower-up-device.html#up-device-refresh-sync" since="0.9.0"/>
+    <keyword type="function" name="up_device_set_object_path_sync ()" link="UPower-up-device.html#up-device-set-object-path-sync" since="0.9.0"/>
+    <keyword type="function" name="up_device_get_history_sync ()" link="UPower-up-device.html#up-device-get-history-sync" since="0.9.0"/>
+    <keyword type="function" name="up_device_get_statistics_sync ()" link="UPower-up-device.html#up-device-get-statistics-sync" since="0.9.0"/>
+    <keyword type="function" name="up_device_get_object_path ()" link="UPower-up-device.html#up-device-get-object-path" since="0.9.0"/>
+    <keyword type="typedef" name="UpHistoryItemPrivate" link="UPower-up-history-item.html#UpHistoryItemPrivate"/>
+    <keyword type="function" name="up_history_item_new ()" link="UPower-up-history-item.html#up-history-item-new" since="0.9.0"/>
+    <keyword type="function" name="up_history_item_get_value ()" link="UPower-up-history-item.html#up-history-item-get-value" since="0.9.0"/>
+    <keyword type="function" name="up_history_item_set_value ()" link="UPower-up-history-item.html#up-history-item-set-value" since="0.9.0"/>
+    <keyword type="function" name="up_history_item_get_time ()" link="UPower-up-history-item.html#up-history-item-get-time" since="0.9.0"/>
+    <keyword type="function" name="up_history_item_set_time ()" link="UPower-up-history-item.html#up-history-item-set-time" since="0.9.0"/>
+    <keyword type="function" name="up_history_item_get_state ()" link="UPower-up-history-item.html#up-history-item-get-state" since="0.9.0"/>
+    <keyword type="function" name="up_history_item_set_state ()" link="UPower-up-history-item.html#up-history-item-set-state" since="0.9.0"/>
+    <keyword type="typedef" name="UpQosItemPrivate" link="UPower-up-qos-item.html#UpQosItemPrivate"/>
+    <keyword type="function" name="up_qos_item_new ()" link="UPower-up-qos-item.html#up-qos-item-new" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_get_uid ()" link="UPower-up-qos-item.html#up-qos-item-get-uid" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_set_uid ()" link="UPower-up-qos-item.html#up-qos-item-set-uid" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_get_pid ()" link="UPower-up-qos-item.html#up-qos-item-get-pid" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_set_pid ()" link="UPower-up-qos-item.html#up-qos-item-set-pid" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_get_sender ()" link="UPower-up-qos-item.html#up-qos-item-get-sender" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_set_sender ()" link="UPower-up-qos-item.html#up-qos-item-set-sender" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_get_cmdline ()" link="UPower-up-qos-item.html#up-qos-item-get-cmdline" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_set_cmdline ()" link="UPower-up-qos-item.html#up-qos-item-set-cmdline" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_get_cookie ()" link="UPower-up-qos-item.html#up-qos-item-get-cookie" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_set_cookie ()" link="UPower-up-qos-item.html#up-qos-item-set-cookie" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_get_timespec ()" link="UPower-up-qos-item.html#up-qos-item-get-timespec" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_set_timespec ()" link="UPower-up-qos-item.html#up-qos-item-set-timespec" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_get_persistent ()" link="UPower-up-qos-item.html#up-qos-item-get-persistent" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_set_persistent ()" link="UPower-up-qos-item.html#up-qos-item-set-persistent" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_get_kind ()" link="UPower-up-qos-item.html#up-qos-item-get-kind" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_set_kind ()" link="UPower-up-qos-item.html#up-qos-item-set-kind" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_get_value ()" link="UPower-up-qos-item.html#up-qos-item-get-value" since="0.9.0"/>
+    <keyword type="function" name="up_qos_item_set_value ()" link="UPower-up-qos-item.html#up-qos-item-set-value" since="0.9.0"/>
+    <keyword type="typedef" name="UpStatsItemPrivate" link="UPower-up-stats-item.html#UpStatsItemPrivate"/>
+    <keyword type="function" name="up_stats_item_new ()" link="UPower-up-stats-item.html#up-stats-item-new" since="0.9.0"/>
+    <keyword type="function" name="up_stats_item_get_value ()" link="UPower-up-stats-item.html#up-stats-item-get-value" since="0.9.0"/>
+    <keyword type="function" name="up_stats_item_set_value ()" link="UPower-up-stats-item.html#up-stats-item-set-value" since="0.9.0"/>
+    <keyword type="function" name="up_stats_item_get_accuracy ()" link="UPower-up-stats-item.html#up-stats-item-get-accuracy" since="0.9.0"/>
+    <keyword type="function" name="up_stats_item_set_accuracy ()" link="UPower-up-stats-item.html#up-stats-item-set-accuracy" since="0.9.0"/>
+    <keyword type="typedef" name="UpWakeupItemPrivate" link="UPower-up-wakeup-item.html#UpWakeupItemPrivate"/>
+    <keyword type="function" name="up_wakeup_item_new ()" link="UPower-up-wakeup-item.html#up-wakeup-item-new" since="0.9.0"/>
+    <keyword type="function" name="up_wakeup_item_get_is_userspace ()" link="UPower-up-wakeup-item.html#up-wakeup-item-get-is-userspace" since="0.9.0"/>
+    <keyword type="function" name="up_wakeup_item_set_is_userspace ()" link="UPower-up-wakeup-item.html#up-wakeup-item-set-is-userspace" since="0.9.0"/>
+    <keyword type="function" name="up_wakeup_item_get_id ()" link="UPower-up-wakeup-item.html#up-wakeup-item-get-id" since="0.9.0"/>
+    <keyword type="function" name="up_wakeup_item_set_id ()" link="UPower-up-wakeup-item.html#up-wakeup-item-set-id" since="0.9.0"/>
+    <keyword type="function" name="up_wakeup_item_get_old ()" link="UPower-up-wakeup-item.html#up-wakeup-item-get-old" since="0.9.0"/>
+    <keyword type="function" name="up_wakeup_item_set_old ()" link="UPower-up-wakeup-item.html#up-wakeup-item-set-old" since="0.9.0"/>
+    <keyword type="function" name="up_wakeup_item_get_value ()" link="UPower-up-wakeup-item.html#up-wakeup-item-get-value" since="0.9.0"/>
+    <keyword type="function" name="up_wakeup_item_set_value ()" link="UPower-up-wakeup-item.html#up-wakeup-item-set-value" since="0.9.0"/>
+    <keyword type="function" name="up_wakeup_item_get_cmdline ()" link="UPower-up-wakeup-item.html#up-wakeup-item-get-cmdline" since="0.9.0"/>
+    <keyword type="function" name="up_wakeup_item_set_cmdline ()" link="UPower-up-wakeup-item.html#up-wakeup-item-set-cmdline" since="0.9.0"/>
+    <keyword type="function" name="up_wakeup_item_get_details ()" link="UPower-up-wakeup-item.html#up-wakeup-item-get-details" since="0.9.0"/>
+    <keyword type="function" name="up_wakeup_item_set_details ()" link="UPower-up-wakeup-item.html#up-wakeup-item-set-details" since="0.9.0"/>
+    <keyword type="enum" name="enum UpDeviceKind" link="UPower-up-types.html#UpDeviceKind"/>
+    <keyword type="enum" name="enum UpDeviceState" link="UPower-up-types.html#UpDeviceState"/>
+    <keyword type="enum" name="enum UpDeviceTechnology" link="UPower-up-types.html#UpDeviceTechnology"/>
+    <keyword type="enum" name="enum UpQosKind" link="UPower-up-types.html#UpQosKind"/>
+    <keyword type="function" name="up_device_kind_to_string ()" link="UPower-up-types.html#up-device-kind-to-string" since="0.9.0"/>
+    <keyword type="function" name="up_device_state_to_string ()" link="UPower-up-types.html#up-device-state-to-string" since="0.9.0"/>
+    <keyword type="function" name="up_device_technology_to_string ()" link="UPower-up-types.html#up-device-technology-to-string" since="0.9.0"/>
+    <keyword type="function" name="up_device_kind_from_string ()" link="UPower-up-types.html#up-device-kind-from-string" since="0.9.0"/>
+    <keyword type="function" name="up_device_state_from_string ()" link="UPower-up-types.html#up-device-state-from-string" since="0.9.0"/>
+    <keyword type="function" name="up_device_technology_from_string ()" link="UPower-up-types.html#up-device-technology-from-string" since="0.9.0"/>
+    <keyword type="function" name="up_qos_kind_to_string ()" link="UPower-up-types.html#up-qos-kind-to-string" since="0.9.0"/>
+    <keyword type="function" name="up_qos_kind_from_string ()" link="UPower-up-types.html#up-qos-kind-from-string" since="0.9.0"/>
+  </functions>
+</book>

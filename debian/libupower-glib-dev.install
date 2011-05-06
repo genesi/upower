@@ -1,0 +1,3 @@
+usr/lib/libupower-glib.{so,a}
+usr/lib/pkgconfig/upower-glib.pc
+usr/include/libupower-glib/
