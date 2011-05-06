@@ -388,6 +388,8 @@ up_qos_cancel_request (UpQos *qos, guint cookie, DBusGMethodInvocation *context)
 	/* TODO: if persistent remove from datadase */
 
 	g_signal_emit (qos, signals [REQUESTS_CHANGED], 0);
+
+	dbus_g_method_return (context, NULL);
 out:
 	if (subject != NULL)
 		g_object_unref (subject);
