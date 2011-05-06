@@ -60,7 +60,7 @@ gboolean	 up_polkit_check_auth		(UpPolkit		*polkit,
 gboolean	 up_polkit_is_allowed		(UpPolkit		*polkit,
 						 PolkitSubject		*subject,
 						 const gchar		*action_id,
-						 DBusGMethodInvocation	*context);
+						 GError		 	**error);
 gboolean         up_polkit_get_uid		(UpPolkit              *polkit,
                                                  PolkitSubject          *subject,
                                                  uid_t                  *uid);
