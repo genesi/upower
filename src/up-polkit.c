@@ -52,11 +52,18 @@ static gpointer up_polkit_object = NULL;
 PolkitSubject *
 up_polkit_get_subject (UpPolkit *polkit, DBusGMethodInvocation *context)
 {
+	GError *error;
 	const gchar *sender;
 	PolkitSubject *subject;
 
 	sender = dbus_g_method_get_sender (context);
 	subject = polkit_system_bus_name_new (sender);
+
+	if (subject == NULL) {
+		error = g_error_new (UP_DAEMON_ERROR, UP_DAEMON_ERROR_GENERAL, "failed to get PolicyKit subject");
+		dbus_g_method_return_error (context, error);
+		g_error_free (error);
+	}
 
 	return subject;
 }
