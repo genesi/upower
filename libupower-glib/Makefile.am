@@ -65,8 +65,9 @@ introspection_sources = $(libupower_glib_la_SOURCES)
 UPowerGlib-1.0.gir: libupower-glib.la
 UPowerGlib_1_0_gir_INCLUDES = GObject-2.0 Gio-2.0
 UPowerGlib_1_0_gir_CFLAGS = $(INCLUDES)
+UPowerGlib_1_0_gir_SCANNERFLAGS = --identifier-prefix=Up --warn-all --add-include-path=$(srcdir)
 UPowerGlib_1_0_gir_LIBS = libupower-glib.la
-UPowerGlib_1_0_gir_FILES = $(addprefix $(srcdir)/,$(introspection_sources))
+UPowerGlib_1_0_gir_FILES = $(introspection_sources)
 INTROSPECTION_GIRS += UPowerGlib-1.0.gir
 
 girdir = $(datadir)/gir-1.0
