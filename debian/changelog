@@ -1,3 +1,9 @@
+upower (0.9.5-4genesi4) maverick; urgency=low
+
+  * More build fixes
+
+ -- Matt Sealey <matt@genesi-usa.com>  Wed, 27 Mar 2013 10:52:13 -0600
+
 upower (0.9.5-4genesi3) maverick; urgency=low
 
   * Build fixes
