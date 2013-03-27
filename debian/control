@@ -1,8 +1,7 @@
 Source: upower
 Section: admin
 Priority: optional
-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
-Uploaders: Michael Biebl <biebl@debian.org>, Martin Pitt <mpitt@debian.org>
+Maintainer: Matt Sealey <matt@genesi-usa.com>
 Build-Depends: debhelper (>= 7),
  cdbs,
  autotools-dev,
@@ -20,8 +19,8 @@ Build-Depends: debhelper (>= 7),
  libusb-1.0-0-dev (>= 1.0.0) [linux-any],
  libimobiledevice-dev (>= 0.9.7) [linux-any]
 Standards-Version: 3.9.1
-Vcs-Git: git://git.debian.org/git/pkg-utopia/upower.git
-Vcs-Browser: http://git.debian.org/?p=pkg-utopia/upower.git;a=summary
+Vcs-Git: https://github.com/genesi/upower.git
+Vcs-Browser: http://github.com/genesi/upower
 Homepage: http://upower.freedesktop.org/
 
 Package: upower
