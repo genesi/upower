@@ -49,7 +49,8 @@ CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 LTLIBRARIES = $(noinst_LTLIBRARIES)
-libupshared_la_LIBADD =
+am__DEPENDENCIES_1 =
+libupshared_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
 am__libupshared_la_SOURCES_DIST = up-device-supply.c \
 	up-device-supply.h up-device-csr.c up-device-csr.h \
 	up-device-hid.c up-device-hid.h up-device-wup.c \
@@ -206,6 +207,8 @@ PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
 PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
 PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
+PLIST_CFLAGS = @PLIST_CFLAGS@
+PLIST_LIBS = @PLIST_LIBS@
 POFILES = @POFILES@
 POLKIT_CFLAGS = @POLKIT_CFLAGS@
 POLKIT_LIBS = @POLKIT_LIBS@
@@ -263,6 +266,7 @@ libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
+lt_ECHO = @lt_ECHO@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -290,7 +294,8 @@ INCLUDES = \
 	$(GUDEV_CFLAGS)						\
 	$(POLKIT_CFLAGS)					\
 	$(GLIB_CFLAGS)						\
-	$(IDEVICE_CFLAGS)
+	$(IDEVICE_CFLAGS)					\
+	$(PLIST_CFLAGS)
 
 @BACKEND_TYPE_LINUX_TRUE@noinst_LTLIBRARIES = libupshared.la
 @HAVE_IDEVICE_FALSE@idevice_files = 
@@ -316,6 +321,9 @@ libupshared_la_SOURCES = \
 EXTRA_DIST = up-device-idevice.c up-device-idevice.h
 libupshared_la_CFLAGS = \
 	$(WARNINGFLAGS_C)
+
+libupshared_la_LIBADD = \
+	$(PLIST_LIBS)
 
 all: all-am
 
