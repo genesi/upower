@@ -183,6 +183,7 @@ if test x$with_backend = xlinux; then
 	PKG_CHECK_MODULES(GUDEV, [gudev-1.0 >= 001])
 	PKG_CHECK_MODULES(USB, [libusb-1.0 >= 1.0.0])
 	PKG_CHECK_MODULES(IDEVICE, libimobiledevice-1.0 >= 0.9.7, with_idevice=yes, with_idevice=no)
+	PKG_CHECK_MODULES(PLIST, libplist)
 	if test x$with_idevice = xyes; then
 		AC_DEFINE(HAVE_IDEVICE, 1, [Define to 1 if AFC is going to be built])
 	fi

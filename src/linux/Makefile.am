@@ -11,7 +11,8 @@ INCLUDES = \
 	$(GUDEV_CFLAGS)						\
 	$(POLKIT_CFLAGS)					\
 	$(GLIB_CFLAGS)						\
-	$(IDEVICE_CFLAGS)
+	$(IDEVICE_CFLAGS)					\
+	$(PLIST_CFLAGS)
 
 if BACKEND_TYPE_LINUX
 noinst_LTLIBRARIES = libupshared.la
@@ -45,6 +46,9 @@ EXTRA_DIST = up-device-idevice.c up-device-idevice.h
 
 libupshared_la_CFLAGS =					\
 	$(WARNINGFLAGS_C)
+
+libupshared_la_LIBADD =					\
+	$(PLIST_LIBS)
 
 clean-local :
 	rm -f *~
