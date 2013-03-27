@@ -5,7 +5,6 @@ Maintainer: Matt Sealey <matt@genesi-usa.com>
 Build-Depends: debhelper (>= 7),
  cdbs,
  autotools-dev,
- quilt,
  pkg-config,
  xsltproc,
  gtk-doc-tools,
